@@ -6,18 +6,27 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as actions from './actions'
 import Button from 'apsl-react-native-button'
 
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
-import { FlightDatePicker } from '../components/datePicker';
+import { FlightDatePicker } from '../../components/datePicker';
 
  class Welcome extends React.Component{
    constructor(props){
      super(props)
      this.state = {date:"2016-05-15"}
    }
+
+  componentWillMount(){
+    this.props.actions.fetchFlights()
+  }
+
   render() {
+
     return (
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
         <View style={styles.titleContianer}>
@@ -26,10 +35,11 @@ import { FlightDatePicker } from '../components/datePicker';
           </Text>
         </View>
         <View>
-          <FlightDatePicker date={"2016-05-15"} />
+          <FlightDatePicker date={moment().format('YYYY-MM-DD')} />
         </View>
         <View style={{ padding: 30 }}>
-        <Button style={{backgroundColor: 'white'}} textStyle={{fontSize: 18}} >
+        <Button
+         style={{backgroundColor: 'white'}} textStyle={{fontSize: 18}} >
           Hello!
         </Button>
         </View>
@@ -38,7 +48,22 @@ import { FlightDatePicker } from '../components/datePicker';
   }
 }
 
-export default Welcome
+
+
+function mapStateToProps({welcomeReducer}) {
+  return {
+    reducer: welcomeReducer
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+
 
 const styles = StyleSheet.create({
   container: {

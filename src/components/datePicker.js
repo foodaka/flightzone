@@ -8,7 +8,7 @@ export const FlightDatePicker = (props) => (
 
   <DatePicker
     style={{width: 200}}
-    date={"2016-05-15"}
+    date={props.data}
     mode="date"
     placeholder="select date"
     format="YYYY-MM-DD"
