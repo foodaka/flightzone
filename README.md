@@ -1,2 +1,4 @@
-# flightzone
-React Native app for checking available flights
+# Flight Zones
+> react-native app
+
+- `npm install`
