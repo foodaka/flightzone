@@ -3,8 +3,7 @@ import {
   FETCH_FLIGHTS_SUCCESS
 } from './constants';
 
-const API_KEY = 'AIzaSyBxWKXLUzVFVzmTZ_kypJQFcDqID9JdPOs'
-
+import API_KEY from '../../keys/api'
 import axios from 'axios';
 export function fetchFlights(){
   return (dispatch) => {

@@ -25,9 +25,11 @@ import { FlightDatePicker } from '../../components/datePicker';
     this.props.actions.fetchFlights()
   }
 
+
   render() {
 
     return (
+
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
         <View style={styles.titleContianer}>
           <Text style={styles.title}>
