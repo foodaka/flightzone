@@ -22,7 +22,7 @@ import { FlightDatePicker } from '../../components/datePicker';
    }
 
   componentWillMount(){
-    this.props.actions.fetchFlights()
+    // this.props.actions.fetchFlights()
   }
 
 
