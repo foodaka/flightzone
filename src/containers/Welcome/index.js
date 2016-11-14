@@ -8,12 +8,13 @@ import {
 
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from './actions'
-import Button from 'apsl-react-native-button'
-
+import * as actions from './actions';
+import Button from 'apsl-react-native-button';
+import { Spinner } from '../../components/spinner';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 import { FlightDatePicker } from '../../components/datePicker';
+
 
  class Welcome extends React.Component{
    constructor(props){
@@ -28,9 +29,11 @@ import { FlightDatePicker } from '../../components/datePicker';
 
   render() {
 
+    console.warn(this.props.reducer.get('isLoading'))
     return (
 
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
+        <Spinner isLoading={this.props.reducer.get('isLoading')} />
         <View style={styles.titleContianer}>
           <Text style={styles.title}>
             Flight Zone
@@ -49,8 +52,6 @@ import { FlightDatePicker } from '../../components/datePicker';
     )
   }
 }
-
-
 
 function mapStateToProps({welcomeReducer}) {
   return {

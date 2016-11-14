@@ -8,6 +8,9 @@ console.warn('key',API_KEY)
 import axios from 'axios';
 export function fetchFlights(){
   return (dispatch) => {
+
+    dispatch({type:FETCH_FLIGHTS})
+
     fetch(`https://www.googleapis.com/qpxExpress/v1/trips/search?key=${API_KEY}`, {
       method:'post',
       headers: {'Accept': 'application/json', 'Content-Type':'application/json'},
