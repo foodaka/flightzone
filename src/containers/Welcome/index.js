@@ -26,6 +26,9 @@ import { FlightDatePicker } from '../../components/datePicker';
     // this.props.actions.fetchFlights()
   }
 
+  flip(){
+    this.props.actions.flip()
+  }
 
   render() {
 
@@ -33,18 +36,23 @@ import { FlightDatePicker } from '../../components/datePicker';
     return (
 
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
-        <Spinner isLoading={this.props.reducer.get('isLoading')} />
+        {/* <Spinner isLoading={this.props.reducer.get('isLoading')} /> */}
         <View style={styles.titleContianer}>
           <Text style={styles.title}>
-            Flight Zone
+            Roam
+          </Text>
+          <Text style={styles.subTitle}>
+            Travel For Backpackers
           </Text>
         </View>
-        <View>
+        <View style={styles.dateSelection}>
           <FlightDatePicker date={moment().format('YYYY-MM-DD')} />
+          <FlightDatePicker date={moment().format('YYYY-MM-DD')} />
+
         </View>
         <View style={{ padding: 30 }}>
         <Button
-         style={{backgroundColor: 'white'}} textStyle={{fontSize: 18}} >
+         style={styles.button} onPress={this.flip.bind(this)} textStyle={{fontSize: 18}} >
           Hello!
         </Button>
         </View>
@@ -85,14 +93,20 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center'
   },
-  lastWorkoutContainer: {
-    flex: 0.3
+
+  subTitle: {
+    fontSize: 24,
+    fontWeight: '500',
+    color: 'white',
+    textAlign: 'center'
   },
-  lastWorkoutTitle: {
-    fontSize: 30,
-    fontWeight: '100',
-    color: 'blue'
+
+  dateSelection: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
+
   button: {
     borderColor: '#EADCDC',
     padding: 10,

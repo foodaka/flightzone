@@ -1,6 +1,7 @@
 import {
   FETCH_FLIGHTS,
-  FETCH_FLIGHTS_SUCCESS
+  FETCH_FLIGHTS_SUCCESS,
+  FLIP
 } from './constants';
 
 import API_KEY from '../../../keys/api.json'
@@ -57,5 +58,11 @@ export function fetchFlights(){
   }).then(res=>res.json())
     .then(res =>{console.log('res',res);})
     .catch(err=> { console.log('err', err );})
+  }
+}
+
+export function flip(){
+  return (dispatch)=>{
+    dispatch({type:FLIP})
   }
 }

@@ -1,7 +1,8 @@
 
 import {
   FETCH_FLIGHTS,
-  FETCH_FLIGHTS_SUCCESS
+  FETCH_FLIGHTS_SUCCESS,
+  FLIP
 } from './constants';
 
 import Immutable from 'immutable';
@@ -20,6 +21,11 @@ export default function reducer(state = initialState, action) {
     case FETCH_FLIGHTS_SUCCESS: {
       return state
                 .set('isLoading', false);
+    }
+
+    case FLIP :{
+    state = state.update('isLoading', v => !v)
+    return state
     }
     default: return state;
   }
