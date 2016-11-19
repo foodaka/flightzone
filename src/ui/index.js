@@ -1,1 +1,0 @@
-export {CurrentWorkout} from './CurrentWorkout';

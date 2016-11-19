@@ -16,7 +16,8 @@ import moment from 'moment';
 import { FlightDatePicker } from '../../components/datePicker';
 import Modal from '../../components/modal';
 import Spinner from 'react-native-loading-spinner-overlay';
-
+import HelloWorld from '../../components/helloWorld';
+import Search from '.././Search/index';
 
  class Welcome extends React.Component{
    constructor(props){
@@ -25,7 +26,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
    }
 
   componentWillMount(){
-    // this.props.actions.fetchFlights()
+    this.props.actions.fetchFlights()
   }
 
   flip(){
@@ -34,12 +35,10 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
   render() {
 
-    console.warn(this.props.reducer.get('isLoading'))
     return (
 
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
-        <Spinner visible={this.props.reducer.get('isLoading')} />
-        {/* <Modal isLoading={this.props.reducer.get('isLoading')} /> */}
+
         <View style={styles.titleContianer}>
           <Text style={styles.title}>
             Roam
@@ -48,15 +47,15 @@ import Spinner from 'react-native-loading-spinner-overlay';
             Travel For Backpackers
           </Text>
         </View>
-        <View style={styles.dateSelection}>
+        {/* <View style={styles.dateSelection}>
           <FlightDatePicker date={moment().format('YYYY-MM-DD')} />
           <FlightDatePicker date={moment().format('YYYY-MM-DD')} />
 
-        </View>
+        </View> */}
         <View style={{ padding: 30 }}>
         <Button
          style={styles.button} onPress={this.flip.bind(this)} textStyle={{fontSize: 18}} >
-          Hello!
+          Search!
         </Button>
         </View>
       </LinearGradient>
