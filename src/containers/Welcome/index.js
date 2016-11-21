@@ -13,7 +13,6 @@ import Button from 'apsl-react-native-button';
 // import { Spinner } from '../../components/spinner';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
-import { FlightDatePicker } from '../../components/datePicker';
 import Modal from '../../components/modal';
 import Spinner from 'react-native-loading-spinner-overlay';
 import HelloWorld from '../../components/helloWorld';
