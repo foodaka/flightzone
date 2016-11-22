@@ -8,6 +8,8 @@ import DayPicker from '../../components/datePickerNew';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions';
+import Button from 'apsl-react-native-button';
+
 
 class Search extends React.Component {
 
@@ -24,11 +26,14 @@ class Search extends React.Component {
   }
 
 
-  handleWhereto(){
-
-  }
 
   render(){
+
+    const {
+      handleWhereto,
+      fetchFlights
+    } = this.props.actions;
+    // console.warn('state',this.props.reducer.toJS())
     return(
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
       <ScrollableTabView>
@@ -36,9 +41,14 @@ class Search extends React.Component {
         <View tabLabel="Trips" />
       </ScrollableTabView>
       <View style={style.flightContainer}>
-      <TextInput onChange={this.props.actions.handleWhereto.bind(this)} />
+        <Text style={style.destinationText}>Where Are You Travelling?</Text>
+        <TextInput
+          onChangeText={(text) => handleWhereto(text)} />
 
         {this.renderDayPicker()}
+      </View>
+      <View>
+        <Button onPress={fetchFlights.bind()}> Find Flights </Button>
       </View>
 
       </LinearGradient>
@@ -50,6 +60,12 @@ class Search extends React.Component {
 const style = {
   flightContainer: {
     flex: 1,
+  },
+
+  destinationText:{
+    color:'#fff',
+    textAlign:'center',
+    fontSize:28
   }
 }
 

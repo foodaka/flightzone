@@ -5,7 +5,6 @@ import {
 } from './constants';
 
 import API_KEY from '../../../keys/api.json'
-console.warn('key',API_KEY)
 import axios from 'axios';
 export function fetchFlights(){
   return (dispatch) => {
