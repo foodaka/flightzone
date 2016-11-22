@@ -5,6 +5,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import ScrollableTabView, {DefaultTabBar, } from 'react-native-scrollable-tab-view';
 import { FlightDatePicker } from '../../components/datePicker';
 import DayPicker from '../../components/datePickerNew';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from './actions';
 
 class Search extends React.Component {
 
@@ -20,6 +23,11 @@ class Search extends React.Component {
     } else return null
   }
 
+
+  handleWhereto(){
+
+  }
+
   render(){
     return(
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
@@ -28,7 +36,8 @@ class Search extends React.Component {
         <View tabLabel="Trips" />
       </ScrollableTabView>
       <View style={style.flightContainer}>
-      <TextInput />
+      <TextInput onChange={this.props.actions.handleWhereto.bind(this)} />
+
         {this.renderDayPicker()}
       </View>
 
@@ -44,4 +53,17 @@ const style = {
   }
 }
 
-export default Search;
+
+function mapStateToProps({SearchReducer}) {
+  return {
+    reducer: SearchReducer
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

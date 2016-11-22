@@ -1,0 +1,1 @@
+export const HANDLE_WHERE_TO_INPUT = 'search/HANDLE_WHERE_TO_INPUT';
