@@ -65,7 +65,9 @@ export function fetchFlights(){
       }
     })
   }).then(res=>res.json())
-    .then(res =>{console.log('res',res);})
+    .then(res =>{
+      dispatch({type:FETCH_FLIGHTS_SUCCESS,payload:res.trips.tripOption})
+      console.log('res',res);})
     .catch(err=> { console.log('err', err );})
   }
 }
