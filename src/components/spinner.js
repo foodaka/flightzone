@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import {
   View,
-  ActivityIndicator
+  ActivityIndicator,
+  Text
 } from 'react-native';
 
 export const Spinner = ({ isLoading }) => {

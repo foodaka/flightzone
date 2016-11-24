@@ -10,6 +10,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from './actions';
 import Button from 'apsl-react-native-button';
 import { FlightList } from '../../components/flightList';
+import { Spinner } from '../../components/spinner';
 
 class Search extends React.Component {
 
@@ -25,12 +26,20 @@ class Search extends React.Component {
     } else return null
   }
 
+  renderSpinner(){
+    if(this.props.reducer.get('isLoading') === true){
+      return (
+        <Spinner isLoading={this.props.reducer.get('isLoading')} />
+      )
+    } else return null
+  }
+
 
 
   render(){
 
     const trips = this.props.reducer.get('tripOptions')
-
+    const isLoading = this.props.reducer.get('isLoading')
     const {
       handleWhereto,
       fetchFlights
@@ -46,9 +55,12 @@ class Search extends React.Component {
         <Text style={style.destinationText}>Where Are You Travelling?</Text>
         <TextInput
           onChangeText={(text) => handleWhereto(text)} />
+          {this.renderDayPicker()}
 
-        {this.renderDayPicker()}
         <FlightList trips={trips}/>
+      </View>
+      <View>
+        {this.renderSpinner()}
       </View>
       <View>
         <Button onPress={fetchFlights.bind()}> Find Flights </Button>
