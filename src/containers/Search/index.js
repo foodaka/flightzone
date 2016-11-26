@@ -11,6 +11,8 @@ import * as actions from './actions';
 import Button from 'apsl-react-native-button';
 import { FlightList } from '../../components/flightList';
 import { Spinner } from '../../components/spinner';
+import Trips from '../Trips';
+
 
 class Search extends React.Component {
 
@@ -47,10 +49,6 @@ class Search extends React.Component {
     console.log('state',this.props.reducer.toJS())
     return(
       <LinearGradient colors={['#fd746c', '#ff9068']} style={{ flex: 1 }}>
-      <ScrollableTabView>
-        <View tabLabel="Search" />
-        <View tabLabel="Trips" />
-      </ScrollableTabView>
       <View style={style.flightContainer}>
         <Text style={style.destinationText}>Where Are You Travelling?</Text>
         <TextInput
@@ -75,12 +73,15 @@ class Search extends React.Component {
 const style = {
   flightContainer: {
     flex: 1,
+
   },
 
   destinationText:{
+    marginTop:30,
     color:'#fff',
     textAlign:'center',
-    fontSize:28
+    fontSize:28,
+    justifyContent:'center'
   }
 }
 

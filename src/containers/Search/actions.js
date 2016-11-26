@@ -29,10 +29,6 @@ export function fetchFlights(){
         "passengers": {
           "kind": "qpxexpress#passengerCounts",
           "adultCount": 1,
-          "childCount": 1,
-          "infantInLapCount": 0,
-          "infantInSeatCount": 0,
-          "seniorCount": 0
         },
         "slice": [
           {
@@ -48,20 +44,13 @@ export function fetchFlights(){
               "earliestTime": "",
               "latestTime": ""
             },
-            "permittedCarrier": [
-
-            ],
-            "alliance": "",
-            "prohibitedCarrier": [
-
-            ]
           }
         ],
         "maxPrice": "",
         "saleCountry": "",
         "ticketingCountry": "",
         "refundable": false,
-        "solutions": 5
+        "solutions": 2
       }
     })
   }).then(res=>res.json())

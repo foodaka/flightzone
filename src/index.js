@@ -3,6 +3,8 @@ import Welcome  from './containers/Welcome';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import Search from './containers/Search/index'
+import Main from './containers/Main';
+
 
 export class Root extends Component{
   constructor(){
@@ -21,13 +23,13 @@ export class Root extends Component{
   renderRoot(ComponentToRender){
     return(
       <Provider store={store}>
-        <ComponentToRender />
+        <ComponentToRender style={{flex:1}} />
       </Provider>
     )
   }
 
   render(){
     const { loggedIn } = this.state;
-    return loggedIn ? this.renderRoot(Search) : this.renderRoot(Welcome)
+    return loggedIn ? this.renderRoot(Main) : this.renderRoot(Welcome)
   }
 }
