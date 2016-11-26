@@ -24,13 +24,7 @@ import Search from '.././Search/index';
      this.state = {date:"2016-05-15"}
    }
 
-  componentWillMount(){
-    this.props.actions.fetchFlights()
-  }
 
-  flip(){
-    this.props.actions.flip()
-  }
 
   render() {
 
@@ -53,7 +47,7 @@ import Search from '.././Search/index';
         </View> */}
         <View style={{ padding: 30 }}>
         <Button
-         style={styles.button} onPress={this.flip.bind(this)} textStyle={{fontSize: 18}} >
+         style={styles.button}  textStyle={{fontSize: 18}} >
           Search!
         </Button>
         </View>
