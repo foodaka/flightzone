@@ -8,11 +8,11 @@ import DayPicker from '../../components/datePickerNew';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions';
-import Button from 'apsl-react-native-button';
+// import Button from 'apsl-react-native-button';
 import { FlightList } from '../../components/flightList';
 import { Spinner } from '../../components/spinner';
 import Trips from '../Trips';
-
+import Button from '../../components/common/Button';
 
 class Search extends React.Component {
 
@@ -57,9 +57,7 @@ class Search extends React.Component {
 
         <FlightList trips={trips}/>
       </View>
-      <View>
         {this.renderSpinner()}
-      </View>
       <View>
         <Button onPress={fetchFlights.bind()}> Find Flights </Button>
       </View>

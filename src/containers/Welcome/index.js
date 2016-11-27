@@ -9,7 +9,7 @@ import {
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from './actions';
-import Button from 'apsl-react-native-button';
+// import Button from 'apsl-react-native-button';
 // import { Spinner } from '../../components/spinner';
 import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
@@ -17,6 +17,7 @@ import Modal from '../../components/modal';
 import Spinner from 'react-native-loading-spinner-overlay';
 import HelloWorld from '../../components/helloWorld';
 import Search from '.././Search/index';
+import Button from '../../components/common/Button';
 
  class Welcome extends React.Component{
    constructor(props){
@@ -45,10 +46,9 @@ import Search from '.././Search/index';
           <FlightDatePicker date={moment().format('YYYY-MM-DD')} />
 
         </View> */}
-        <View style={{ padding: 30 }}>
-        <Button
-         style={styles.button}  textStyle={{fontSize: 18}} >
-          Search!
+        <View style={{marginBottom:5}} >
+        <Button>
+          Go!
         </Button>
         </View>
       </LinearGradient>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   titleContianer: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 0.2
+    flex: 1
   },
   title: {
 
